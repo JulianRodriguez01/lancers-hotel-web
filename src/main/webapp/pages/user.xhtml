@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Cliente</title>
+	<link rel="stylesheet" type="text/css"
+		href="../resources/styles/styles.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="../resources/styles/primeflex.min.css"></link>
+</h:head>
+
+<h:body>
+	<div class="p-grid">
+		<div class="p-col-1">
+			<img src="../resources/images/logo.png" width="100px" height="100px" />
+		</div>
+		<div class="p-col-2">
+			<h2
+				style="color: black; font-weight: bold; font-size: 15; font-family: LoewMedium, Helvetica, Arial, sans-serif;">HOTEL
+				LANCERS, PAIPA.</h2>
+		</div>
+		<div class="p-col-5"></div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:button value="Reservas" styleClass="ui-button-info ui-button-flat"
+				style="height:50px; font-size: 15; font-family: LoewMedium, Helvetica, Arial, sans-serif" />
+		</div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:button value="Español" styleClass="ui-button-info ui-button-flat"
+				style="height:50px; font-size: 15; font-family: LoewMedium, Helvetica, Arial, sans-serif" />
+		</div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:commandButton value="INICIO" styleClass="button-image">
+			</p:commandButton>
+		</div>
+	</div>
+
+	<div class="p-grid" style="background-color: #292929">
+		<div class="p-col-12">
+			<p:separator styleClass="login">
+				<center>
+					<b
+						style="font-weight: bold; color: #fff; font-family: LoewMedium, Helvetica, Arial, sans-serif;">
+						BIENVENIDO!</b>
+				</center>
+			</p:separator>
+		</div>
+
+		<div class="p-col-12" style="background-color: #292929">
+			<div class="p-grid">
+				<div class="p-col-12">
+					<p:dataTable var="sale" value="#{listBean.getSaleList()}">
+						<p:column headerText="Cantidad">
+							<h:outputText value="#{sale.quantify}" />
+						</p:column>
+						<p:column headerText="Nombre">
+							<h:outputText value="#{sale.product}" />
+						</p:column>						
+					</p:dataTable>
+				</div>				
+			</div>
+		</div>
+
+		<div class="p-col-12" style="background-color: #292929">
+			<div class="p-grid">
+				<div class="p-col-12">
+					<center>
+						<b
+							style="font-weight: bold; color: #fff; font-family: LoewMedium, Helvetica, Arial, sans-serif;">
+							Consumo actual: $</b>
+						<p:outputLabel value="#{control.getClient().getTotalSales()}"></p:outputLabel>
+					</center>
+				</div>
+			</div>
+		</div>
+
+		<div class="p-col-12" style="background-color: #F7F7F7">
+			<div class="p-col-12">
+				<p:separator>
+					<center>
+						<p:link>Términos y condiciones del descuento y Wi-Fi
+					gratuito garantizado</p:link>
+					</center>
+				</p:separator>
+				<div class="p-col-8" style="position: relative; left: 10%;">
+					<h2
+						style="color: black; font-weight: bold; font-size: 15; font-family: LoewMedium, Helvetica, Arial, sans-serif;">HAGA
+						UNA RESERVACIÓN POR TELÉFONO</h2>
+					<p
+						style="color: #58595B; font-family: LoewMedium, sans-serif; text-align: justify; letter-spacing: -.01em;">
+						COLOMBIA, PAIPA(PANTANO DE VARGAS ) - BOYACÁ 🍂 SERVICIO DE HOTEL
+						24 HORAS ✨TU ESTADÍA ES LA PRIORIDAD✨ 📍PANTANO DE VARGAS
+						📲RESERVAS 3135807838 📲
+						<p:link href="wa.link/cinq1k">wa.link/cinq1k</p:link>
+						.
+					</p>
+
+				</div>
+				<div class="p-col-8" style="position: relative; left: 10%">
+					<h2
+						style="color: black; bold; font-size: 10; font-family: LoewMedium, Helvetica, Arial, sans-serif;">INFORMACIÓN
+						DEL SITIO</h2>
+					<p
+						style="color: #58595B; font-family: LoewMedium, sans-serif; text-align: justify; letter-spacing: -.01em;">EN
+						ESTE MARAVILLOSO LUGAR SE FORJÓ LA LIBERTAD NO SOLAMENTE PARA
+						COLOMBIA SI NO QUE FUE DECISIVA PARA LA DE TODA LATINOAMÉRICA.
+						ALLÍ ENCONTRAMOS DIFERENTES ATRACTIVOS HISTÓRICOS ADEMÁS DE
+						ESTABLECIMIENTOS COMERCIALES, LONCHERÍAS, ARTESANÍAS,
+						RESTAURANTES, Y EN ESPECIAL EL MONUMENTO A LOS 14 LANCEROS.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+
+</html>

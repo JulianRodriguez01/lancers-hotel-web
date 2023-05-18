@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css"
+		href="resources/styles/styles.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="resources/styles/primeflex.min.css"></link>
+</h:head>
+
+<h:body>
+	<!-- Header -->
+	<div class="p-grid">
+		<div class="p-col-1">
+			<img src="resources/images/logo.png" width="100px" height="100px" />
+		</div>
+		<div class="p-col-2">
+			<h2
+				style="color: black; font-weight: bold; font-size: 15; font-family: LoewMedium, Helvetica, Arial, sans-serif;">HOTEL
+				LANCERS, PAIPA.</h2>
+		</div>
+		<div class="p-col-5"></div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:button value="RESERVAS" styleClass="ui-button-flat"
+				style="color:black" />
+		</div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:button value="ESPAÑOL" styleClass="ui-button-flat"
+				style="color:black" />
+		</div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:commandButton value="INICIO" styleClass="button-image"
+				style="color:black">
+			</p:commandButton>
+		</div>
+	</div>
+
+	<!-- body -->
+	<div class="p-col-12"
+		style="background-image: url('https://www.hotelesestelar.com/sites/all/themes/files/destino/Header_516_0.jpg'); background-repeat: no-repeat; background-attachment: scroll; background-size: 100%;">
+		<div style="margin-top: 20%; margin-left: 5%; margin-bottom: 20px">
+			<p:button value="MÁS INFORMACIÓN >" />
+		</div>
+	</div>
+	<div class="p-col-12" style="background-color: #292929">
+		<p:separator styleClass="login">
+			<center>
+				<b
+					style="font-weight: bold; color: #fff; font-family: LoewMedium, Helvetica, Arial, sans-serif;">
+					INGRESE AL HOTEL </b>
+			</center>
+		</p:separator>
+		<h:form>
+			<div class="p-grid ui-fluid"
+				style="text-align: center; margin-top: 30px">
+				<div class="p-col-3 p-md-3"></div>
+				<div class="p-col-2 p-md-3" style="position: relative; left: 50px">
+					<div class="ui-inputgroup">
+						<div class="ui-inputgroup-addon">
+							<i class="pi pi-user"></i>
+						</div>
+						<p:inputText placeholder="Usuario" value="#{loginBean.user}" />
+					</div>
+				</div>
+				<div class="p-col-4 p-md-3">
+					<div class="ui-inputgroup">
+						<p:password id="toggle" toggleMask="true" redisplay="true"
+							value="#{loginBean.password}" />
+					</div>
+				</div>
+				<div class="p-col-4 p-md-4"></div>
+				<div class="p-col-4 p-md-4">
+					<p:commandButton value="INGRESAR" styleClass="button-image"
+						action="#{loginBean.login()}">
+					</p:commandButton>
+				</div>
+			</div>
+		</h:form>
+		<p:separator>
+			<center>
+				<p:link style="color:#338EFF">Términos y condiciones del descuento y Wi-Fi
+					gratuito garantizado</p:link>
+			</center>
+		</p:separator>
+	</div>
+
+	<!-- Footer -->
+	<div class="p-col-12" style="background-color: #F7F7F7">
+		<div class="p-col-12">
+			<p:separator>
+				<center>
+					<p:link style="color:#338EFF">Términos y condiciones del descuento y Wi-Fi
+					gratuito garantizado</p:link>
+				</center>
+			</p:separator>
+			<div class="p-col-8" style="position: relative; left: 10%;">
+				<h2
+					style="color: black; font-weight: bold; font-size: 15; font-family: LoewMedium, Helvetica, Arial, sans-serif;">HAGA
+					UNA RESERVACIÓN POR TELÉFONO</h2>
+				<p
+					style="color: #58595B; font-family: LoewMedium, sans-serif; text-align: justify; letter-spacing: -.01em;">
+					COLOMBIA, PAIPA(PANTANO DE VARGAS ) - BOYACÁ 🍂 SERVICIO DE HOTEL
+					24 HORAS ✨TU ESTADÍA ES LA PRIORIDAD✨ 📍PANTANO DE VARGAS
+					📲RESERVAS 3135807838 📲
+					<p:link href="wa.link/cinq1k" style="color:#338EFF">wa.link/cinq1k</p:link>
+					.
+				</p>
+
+			</div>
+			<div class="p-col-8" style="position: relative; left: 10%">
+				<h2
+					style="color: black; bold; font-size: 10; font-family: LoewMedium, Helvetica, Arial, sans-serif;">INFORMACIÓN
+					DEL SITIO</h2>
+				<p
+					style="color: #58595B; font-family: LoewMedium, sans-serif; text-align: justify; letter-spacing: -.01em;">EN
+					ESTE MARAVILLOSO LUGAR SE FORJÓ LA LIBERTAD NO SOLAMENTE PARA
+					COLOMBIA SI NO QUE FUE DECISIVA PARA LA DE TODA LATINOAMÉRICA. ALLÍ
+					ENCONTRAMOS DIFERENTES ATRACTIVOS HISTÓRICOS ADEMÁS DE
+					ESTABLECIMIENTOS COMERCIALES, LONCHERÍAS, ARTESANÍAS, RESTAURANTES,
+					Y EN ESPECIAL EL MONUMENTO A LOS 14 LANCEROS.</p>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

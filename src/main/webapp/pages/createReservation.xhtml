@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Habitación</title>
+	<link rel="stylesheet" type="text/css"
+		href="../resources/styles/styles.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="../resources/styles/primeflex.min.css"></link>
+</h:head>
+
+<h:body>
+	<div class="p-grid">
+		<div class="p-col-1">
+			<img src="../resources/images/logo.png" width="100px" height="100px" />
+		</div>
+		<div class="p-col-2">
+			<h2
+				style="color: black; font-weight: bold; font-size: 15; font-family: LoewMedium, Helvetica, Arial, sans-serif;">HOTEL
+				LANCERS, PAIPA.</h2>
+		</div>
+		<div class="p-col-5"></div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:button value="RESERVAS" styleClass="ui-button-flat"
+				style="color:black" />
+		</div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:button value="ESPAÑOL" styleClass="ui-button-flat"
+				style="color:black" />
+		</div>
+		<div class="p-col-1" style="margin-top: 40px">
+			<p:commandButton value="INICIO" styleClass="button-image"
+				style="color:black">
+			</p:commandButton>
+		</div>
+	</div>
+
+	<div class="p-grid" style="background-color: #292929">
+		<div class="p-col-12">
+			<p:separator styleClass="login">
+				<center>
+					<b
+						style="font-weight: bold; color: #fff; font-family: LoewMedium, Helvetica, Arial, sans-serif;">
+						CONFIGURE SU HOTEL</b>
+				</center>
+			</p:separator>
+		</div>
+
+		<div class="p-grid" style="background-color: #292929">
+			<div class="p-col-2"></div>
+			<div class="p-col-8" style="background-color: #292929">
+				<h:form>
+					<p:growl id="messages" />
+					<p:menubar>
+						<p:submenu label="Habitaciones" icon="pi pi-fw pi-key">
+							<p:menuitem value="Nueva Habitación" icon="pi pi-fw pi-plus"
+								action="/pages/createRoom.xhtml?faces-redirect=true" />
+							<p:menuitem value="Editar Habitación" icon="pi pi-fw pi-pencil"
+								action="/pages/listRooms.xhtml?faces-redirect=true" />
+							<p:divider />
+						</p:submenu>
+
+						<p:submenu label="Productos" icon="pi pi-fw pi-apple">
+							<p:menuitem value="Nuevo Producto" icon="pi pi-fw pi-plus"
+								action="/pages/crearProducto.xhtml?faces-redirect=true" />
+							<p:divider />
+							<p:menuitem value="Eliminar Producto" icon="pi pi-fw pi-trash"
+								action="/pages/listarProducto.xhtml?faces-redirect=true" />
+						</p:submenu>
+
+						<p:submenu label="Clientes" icon="pi pi-fw pi-user">
+							<p:menuitem value="Registrar cliente"
+								icon="pi pi-fw pi-user-plus"
+								action="/pages/createClient.xhtml?faces-redirect=true" />
+							<p:menuitem value="Crear reservación" icon="pi pi-fw pi-users"
+								action="/pages/createReservation.xhtml?faces-redirect=true" />
+							<p:menuitem value="Asignar habitación" icon="pi pi-fw pi-key"
+								action="/pages/assignRoom.xhtml?faces-redirect=true" />
+						</p:submenu>
+
+						<p:submenu label="Facturas" icon="pi pi-fw pi-calendar">
+							<p:menuitem value="Mostrar lista" icon="pi pi-fw pi-bars"
+								action="/pages/listInvoices.xhtml?faces-redirect=true" />
+						</p:submenu>
+
+
+						<p:divider layout="vertical" />
+
+						<f:facet name="options">
+							<p:commandButton value="Salir" icon="pi pi-fw pi-sign-out"
+								action="#{loginBean.logout}"></p:commandButton>
+						</f:facet>
+					</p:menubar>
+				</h:form>
+			</div>
+			<div class="p-col-2"></div>
+
+			<div class="p-col-2"></div>
+			<div class="p-col-8">
+				<div class="card">
+					<h2
+						style="color: #fff; font-family: LoewMedium, Helvetica, Arial, sans-serif">Agregar
+						reservación</h2>
+					<h:form id="fomulario-habitaciones">
+						<div class="p-grid ui-fluid" style="color: #fff">
+
+
+							<div class="p-col-12 p-md-4">
+								<div class="ui-inputgroup">
+									<div class="ui-inputgroup-addon">
+										<i class="pi pi-calendar"></i>
+									</div>
+									<p:datePicker placeholder="Fecha de entrada"
+										value="#{reservationBean.dateIn}" monthNavigator="true"
+										yearNavigator="true" showWeek="true" />
+								</div>
+							</div>
+
+							<div class="p-col-12 p-md-4">
+								<div class="ui-inputgroup">
+									<div class="ui-inputgroup-addon">
+										<i class="pi pi-calendar"></i>
+									</div>
+									<p:datePicker placeholder="Fecha de salida"
+										value="#{reservationBean.dateOut}" monthNavigator="true"
+										yearNavigator="true" showWeek="true" />
+								</div>
+							</div>
+							<div class="p-field p-col-8p-md-8"
+								style="margin-top: 8px; margin-left: 10px">
+								<p:commandButton value="Crear reservación"
+									action="#{reservationBean.addReservation}">
+								</p:commandButton>
+							</div>
+						</div>
+					</h:form>
+				</div>
+			</div>
+			<div class="p-col-2"></div>
+			<div class="p-col-2"></div>
+			<div class="p-col-8">
+			
+				<div class="card" style="margin-bottom: 50px">
+					<p:dataTable var="reservation"
+						value="#{listBean.getReservationList()}">
+						<p:column headerText="Codigo">
+							<h:outputText value="#{reservation.idReservation}" />
+						</p:column>
+						<p:column headerText="Fecha ingreso">
+							<h:outputText value="#{reservation.dateIn}" />
+						</p:column>
+						<p:column headerText="Fecha salida">
+							<h:outputText value="#{reservation.dateOut}" />
+						</p:column>
+						<p:column headerText="Agregar habitaciones">										
+							<div class="p-grid">
+								<h:selectOneListbox value="#{userData.room}"
+									style="width: 130px !important; height:50px !important">
+									<f:selectItem itemValue="101" itemLabel="Hab. 101" />
+									<f:selectItem itemValue="102" itemLabel="Hab. 102" />
+									<f:selectItem itemValue="103" itemLabel="Hab. 103" />
+									<f:selectItem itemValue="201" itemLabel="Hab. 201" />
+									<f:selectItem itemValue="202" itemLabel="Hab. 202" />
+									<f:selectItem itemValue="203" itemLabel="Hab. 203" />
+									<f:selectItem itemValue="204" itemLabel="Hab. 204" />
+									<f:selectItem itemValue="301" itemLabel="Hab. 301" />
+									<f:selectItem itemValue="302" itemLabel="Hab. 302" />
+									<f:selectItem itemValue="303" itemLabel="Hab. 303" />
+								</h:selectOneListbox>
+								<p:commandButton icon="pi pi-plus"
+									action="#{reservation.addRoomToReservation(param.amount)}"
+									onclick="PF('dlg').show();">
+								</p:commandButton>
+								<p:dialog header="✔ Correcto" widgetVar="dlg" minHeight="40">
+									<h:outputText value="Reserva creada correctamente!" />
+								</p:dialog>
+							</div>
+						</p:column>
+						
+					</p:dataTable>
+				</div>
+				
+				<div class="p-grid" style="background-color: #292929">
+					<div class="p-col-5"></div>
+					<div class="p-col-4">
+						<p:commandButton value="Generar factura"
+							action="#{reservationBean.generateInvoice}">
+						</p:commandButton>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div class="p-col-12" style="background-color: #F7F7F7">
+			<div class="p-col-12">
+				<p:separator>
+					<center>
+						<p:link style="color:#338EFF">Términos y condiciones del descuento y Wi-Fi
+					gratuito garantizado</p:link>
+					</center>
+				</p:separator>
+				<div class="p-col-8" style="position: relative; left: 10%;">
+					<h2
+						style="color: black; font-weight: bold; font-size: 15; font-family: LoewMedium, Helvetica, Arial, sans-serif;">HAGA
+						UNA RESERVACIÓN POR TELÉFONO</h2>
+					<p
+						style="color: #58595B; font-family: LoewMedium, sans-serif; text-align: justify; letter-spacing: -.01em;">
+						COLOMBIA, PAIPA(PANTANO DE VARGAS ) - BOYACÁ 🍂 SERVICIO DE HOTEL
+						24 HORAS ✨TU ESTADÍA ES LA PRIORIDAD✨ 📍PANTANO DE VARGAS
+						📲RESERVAS 3135807838 📲
+						<p:link href="wa.link/cinq1k" style="color:#338EFF">wa.link/cinq1k</p:link>
+						.
+					</p>
+
+				</div>
+				<div class="p-col-8" style="position: relative; left: 10%">
+					<h2
+						style="color: black; bold; font-size: 10; font-family: LoewMedium, Helvetica, Arial, sans-serif;">INFORMACIÓN
+						DEL SITIO</h2>
+					<p
+						style="color: #58595B; font-family: LoewMedium, sans-serif; text-align: justify; letter-spacing: -.01em;">EN
+						ESTE MARAVILLOSO LUGAR SE FORJÓ LA LIBERTAD NO SOLAMENTE PARA
+						COLOMBIA SI NO QUE FUE DECISIVA PARA LA DE TODA LATINOAMÉRICA.
+						ALLÍ ENCONTRAMOS DIFERENTES ATRACTIVOS HISTÓRICOS ADEMÁS DE
+						ESTABLECIMIENTOS COMERCIALES, LONCHERÍAS, ARTESANÍAS,
+						RESTAURANTES, Y EN ESPECIAL EL MONUMENTO A LOS 14 LANCEROS.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+
+</html>
